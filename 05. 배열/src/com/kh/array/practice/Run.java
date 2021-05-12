@@ -6,7 +6,7 @@ public class Run {
 		// TODO Auto-generated method stub
 
 		ArrayPractice a = new ArrayPractice();
-		a.practice11();
+		a.practice9();
 	
 	}
 

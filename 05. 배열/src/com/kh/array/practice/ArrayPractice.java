@@ -27,6 +27,28 @@ public class ArrayPractice {
 		}
 	}
 	
+	public void practice2_1() {
+		
+		int arr[] = new int[10];
+		
+		//오름차순 값 저장
+		for(int i=0; i<arr.length; i++) {
+			arr[i] = i+1;
+		}
+		
+		for(int i=0; i<arr.length; i++) {
+			for(int j = i+1; j<arr.length; j++) {
+				if(arr[i] < arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+			System.out.print(arr[i] + " ");
+		}
+		
+	}
+	
 	public void practice3() {
 		
 		Scanner sc = new Scanner(System.in);
@@ -36,22 +58,12 @@ public class ArrayPractice {
 		
 		for(int i=0; i<arr.length; i++) {
 			arr[i] = i+1;
-		}
-		
-		for(int i=0; i<arr.length; i++) {
 			System.out.print((i+1) + " ");
 		}
 	}
 	
 	public void practice4 () {
-		String[] fruit = new String[5];
-		
-		fruit[0] = "사과";
-		fruit[1] = "귤";
-		fruit[2] = "포도";
-		fruit[3] = "복숭아";
-		fruit[4] = "참외";
-		
+		String[] fruit = {"사과","귤","포도","복숭아","참외"};
 		System.out.println(fruit[1]);
 	}
 
@@ -61,6 +73,7 @@ public class ArrayPractice {
 		String str = sc.nextLine();
 		
 		char[] arr = new char[str.length()];
+		
 		for(int i=0; i<arr.length; i++) {
 			arr[i] = str.charAt(i);
 		}
@@ -69,14 +82,16 @@ public class ArrayPractice {
 		char s1 = sc.nextLine().charAt(0);
 		
 		int count= 0;
+		String index = "";
 		
-		System.out.print(str + "에 " + s1 + "가 존재하는 위치(인덱스) : ");
+		
 		for(int i=0; i<arr.length; i++) {
 			if(arr[i] == s1) {
-				System.out.print(i + " ");
-				count += 1;
+				index += i + " ";
+				count++;
 			}
 		}
+		System.out.print(str + "에 " + s1 + "가 존재하는 위치(인덱스) : " + index);
 		System.out.printf("\n%s 개수 : %d",s1, count);	
 	}
 
@@ -148,25 +163,25 @@ public class ArrayPractice {
 		
 		String[] menu = {"후라이드","양념","간장","어니언크림"};
 		
-		System.out.print("치킨 이름을 입력하세요 : ");
+		System.out.println("치킨 이름을 입력하세요 : ");
 		String chiken = sc.nextLine();
 		
 		for(int i=0; i<menu.length; i++) {
+			
 			if(chiken.equals(menu[i])) {
 				System.out.printf("%s치킨 배달가능", chiken);
 				return;
 			}
 		}
-		System.out.printf("%s치킨은 없는 메뉴입니다", chiken);			
+		System.out.printf("%s치킨은 없는 메뉴입니다", chiken);
 	}
 	
 	public void practice10() {
 		
 		int[] arr = new int[10];
+		
 		for(int i=0; i<arr.length; i++) {
 			arr[i] = (int)(Math.random()*10 +1);
-		}
-		for(int i=0; i<arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
 	}
@@ -179,6 +194,7 @@ public class ArrayPractice {
 		
 		for(int i=0; i<arr.length; i++) {
 			arr[i] = (int)(Math.random()*10 +1);
+			System.out.print(arr[i] + " ");
 			
 			if(arr[i] > max) {
 				max = arr[i];
@@ -188,12 +204,23 @@ public class ArrayPractice {
 			}
 		}
 		
-		for(int i=0; i<arr.length; i++) {
-			System.out.print(arr[i] + " ");
-		}
 		System.out.println("\n최대값 : " + max);
 		System.out.println("최소값 : " + min);	
 	}
+	
+	public void practice11_1() {
+		int[] arr = new int[10];
+	
+		for(int i=0; i<arr.length; i++) {
+			arr[i] = (int)(Math.random()*10 +1);
+			System.out.print(arr[i] + " ");
+		}
+		
+		Arrays.sort(arr);
+		System.out.println("\n최대값 : " + arr[9]);
+		System.out.println("최소값 : " + arr[0]);	
+	}
+	
 	
 	public void practice12() { 
 		
@@ -222,10 +249,11 @@ public class ArrayPractice {
 		
 		char[] arr = new char[id.length()];
 		
-		for(int i=0; i<arr.length; i++) {
-			if(i < 8) {
-				arr[i] = id.charAt(i);
-			}else {
+		for(int i=0; i<arr.length; i++) {  
+			
+			arr[i] = id.charAt(i);   //간단하게 바꾸기! (if, else 모두 쓸 필요 없다.)
+			
+			if(i >= 8) {
 				arr[i] = '*';
 			}
 		}
