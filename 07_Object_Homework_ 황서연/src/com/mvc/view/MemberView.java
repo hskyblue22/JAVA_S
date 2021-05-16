@@ -3,10 +3,14 @@ package com.mvc.view;
 import java.util.Scanner;
 
 import com.mvc.controller.MemberController;
+//mvc 패턴 중 view 패키지 : 사용자가 보게될 화면을 담당하는 부분
+//따라서 사용자가 보게되는 출력문 (print구문)은 반드시 view 패키지 안에만 작성!! 그외는 놉!
+//뿐만아니라 사용자가 키보드로 입력하는 부분(scanner사용)도 view 패키지 안에만 작성!!
 
 public class MemberView {
 
 	private Scanner sc = new Scanner(System.in);
+	// 화면에서 사용자가 요청 처리를 할 때마다 controller의 메소드를 실행할거기 때문에 memberController 객체 생성
 	private MemberController mc = new MemberController();
 	
 	public MemberView() {
