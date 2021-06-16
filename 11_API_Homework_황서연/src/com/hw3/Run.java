@@ -1,0 +1,19 @@
+package com.hw3;
+
+import java.util.Calendar;
+
+import com.hw3.controller.SetDate;
+
+public class Run {
+
+	public static void main(String[] args) {
+		
+		SetDate tw1 = new SetDate();
+		
+		System.out.println(tw1.todayPrint());
+		
+		System.out.println(tw1.setDay());
+
+	}
+
+}
