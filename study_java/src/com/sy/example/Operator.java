@@ -43,7 +43,7 @@ public class Operator {
 		System.out.println("주민번호를 입력하세요(-포함) : ");
 		String p_no = sc.nextLine();
 		
-		String s = p_no.charAt(7) == '1' ? "남자" : "여자";
+		String s = (p_no.charAt(7) == '1' || p_no.charAt(7) == '3') ? "남자" : "여자";
 		
 		System.out.println(s);
 	}

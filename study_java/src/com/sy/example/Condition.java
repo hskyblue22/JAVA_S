@@ -95,20 +95,15 @@ public class Condition {
 		}else {
 			switch(op) {
 			case '+' :
-				result = n1 + n2;
-				break;
+				result = n1 + n2; break;
 			case '-' :
-				result = n1 - n2;
-				break;
+				result = n1 - n2; break;
 			case '*' :
-				result = n1 * n2;
-				break;
+				result = n1 * n2; break;
 			case '/' :
-				result = n1 / n2;
-				break;
+				result = n1 / n2; break;
 			case '%' :
-				result = n1 % n2;
-				break;
+				result = n1 % n2; break;
 			default :
 				System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
 				return;
