@@ -19,7 +19,6 @@ public class Person {
 	}
 
 
-
 	public String information() {
 		return name +" "+ age +" "+ height +" "+ weight;
 	}
