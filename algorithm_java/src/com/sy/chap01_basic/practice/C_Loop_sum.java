@@ -16,13 +16,13 @@ public class C_Loop_sum {
 		int i = 1;
 		
 		while(i<=n) {
-			System.out.println("증감전 i : "+i);
 			sum += i;
 			i++;
-			System.out.println("증감후i : "+i);
 		}
 		
 		System.out.println(sum);
+		System.out.println("증감전 i : "+i);
+		System.out.println("증감후i : "+i);
 	}
 	
 	//Q7
@@ -69,15 +69,15 @@ public class C_Loop_sum {
 	//Q10 정수 b에서 정수 a를 뺀 값을 구합니다(b > a가 되도록 입력 받음)
 	public void practice10() {  //static -> 멤버변수도 static이어야 함
 		
+		System.out.print("정수 a를 입력하세요 : ");
+		int a = sc.nextInt();
+		
 		while(true) {
-			System.out.print("정수 a를 입력하세요 : ");
-			int a = sc.nextInt();
 			System.out.println("정수 b를 입력하세요(a보다 크게) : ");
 			int b = sc.nextInt();
 			
 			if(a>b) {
 				System.out.println("b는 a보다 큰 정수를 입력해주세요");
-				continue;
 			}else {
 				System.out.println("b - a : " + (b-a));
 				break;
