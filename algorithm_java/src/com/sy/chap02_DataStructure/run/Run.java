@@ -1,15 +1,16 @@
 package com.sy.chap02_DataStructure.run;
 
-import java.util.Arrays;
-
 import com.sy.chap02_DataStructure.practice.A_Array;
+import com.sy.chap02_DataStructure.practice.B_Array;
+import com.sy.chap02_DataStructure.practice.C_DayofYear;
+import com.sy.chap02_DataStructure.practice.D_Clone;
 
 public class Run {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		a_array();
+		new C_DayofYear().main();
 	}
 	
 	public static void a_array() {
@@ -29,4 +30,10 @@ public class Run {
 //		arr.primeNumber3();
 	}
 
+	public static void b_array(){
+//		B_Array.primeNumber2();
+		B_Array.erat();
+	}
+	
+	
 }
