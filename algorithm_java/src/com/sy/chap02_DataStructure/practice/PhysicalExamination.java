@@ -29,13 +29,23 @@ public class PhysicalExamination {
 	
 	static void distVision(PhyscData[] dat, int[] dist){
 		int i = 0;
-		
 		dist[i] = 0;  //시력 정보 담을 배열
+		
 		for(i=0; i<dat.length; i++) {
-			
+			dist[(int)(dat[i].vision*10)]++;
 		}
 	}
 	
+	//Q10. 시력분포를 사람수만큼 "*"를 반복하여 나타내라
+	static void printVision(int[] vdist) {
+		for(int i=0; i<vdist.length; i++) {
+			System.out.printf("%.1f ~ : ",i/10.0);
+			for(int k=0; k<vdist[i]; k++) {
+				System.out.printf("*");
+			}
+			System.out.println();
+		}
+	}
 	
 	public static void main(String[] args) {
 		
@@ -50,5 +60,26 @@ public class PhysicalExamination {
 			new PhyscData("김영준", 174, 1.2)	,
 			new PhyscData("박용규", 169, 0.8)	,
 		};
+		
+		System.out.println("◆ 신체검사 리스트 ◆");
+		System.out.println("이름     키    시력  ");
+		System.out.println("------------------");
+		for(int i=0; i<x.length; i++) {
+			System.out.printf("%-5s %-4d %4.1f\n",x[i].name, x[i].height, x[i].vision);
+		}
+		
+		System.out.printf("\n평균 키 : %.1fcm\n", aveHeight(x));
+		
+		System.out.println("시력 분포");
+		
+		int[] vdist = new int[VMAX];
+		distVision(x,vdist);
+		for(int i=0; i<vdist.length; i++) {
+			System.out.printf("%.1f ~ : %d명\n",i/10.0,vdist[i]);  //(i/10) 안됨! -> 0.0으로만 나옴
+		}
+		
+		printVision(vdist);
+		
+
 	}
 }

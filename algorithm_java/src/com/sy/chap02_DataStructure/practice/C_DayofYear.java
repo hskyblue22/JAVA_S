@@ -30,14 +30,14 @@ public class C_DayofYear {
 	}
 	
 	public int dayOfyear(int y, int m, int d) {
-		
-		int total_day = 0;
+		//m=4인경우 m=1,2,3월 더해야 하므로 
+		//-> int[평년/윤년][0]+int[평년/윤년][1]+int[평년/윤년][2] 더하면 된다.
 		
 		while(m-2 >= 0) {
-			total_day += mdays[isLeap(y)][m-2];
+			d += mdays[isLeap(y)][m-2];
 			m--;
 		}
-		return total_day + d;
+		return d;
 	}
 	
 	public int leftDayofYear(int y, int m, int d) {

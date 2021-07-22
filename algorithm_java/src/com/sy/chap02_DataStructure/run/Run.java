@@ -3,7 +3,6 @@ package com.sy.chap02_DataStructure.run;
 import com.sy.chap02_DataStructure.practice.A_Array;
 import com.sy.chap02_DataStructure.practice.B_Array;
 import com.sy.chap02_DataStructure.practice.C_DayofYear;
-import com.sy.chap02_DataStructure.practice.D_Clone;
 
 public class Run {
 
