@@ -11,9 +11,18 @@ public class E_binSearchX {
 		int num = sc.nextInt();
 		
 		int[] arr = new int[num];
-		for(int i=0; i<num; i++) {
-			System.out.print("x["+i+"] : ");
-			arr[i] = sc.nextInt();
+		
+		System.out.println("오름차순으로 입력하세요");
+		
+		System.out.println("x[0] : ");
+		arr[0] = sc.nextInt();
+		
+		//이진검색 -> 오름차순 정렬로
+		for(int i=1; i<num; i++) {
+			do {
+				System.out.print("x["+i+"] : ");
+				arr[i] = sc.nextInt();
+			}while(arr[i]<arr[i-1]);
 		}
 		
 		System.out.print("검색할 값 : ");

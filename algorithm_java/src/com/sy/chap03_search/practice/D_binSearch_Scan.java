@@ -14,9 +14,16 @@ public class D_binSearch_Scan {
 		}while(num <= 0);
 		
 		int[] arr = new int[num];
-		for(int i=0; i<num; i++) {
-			System.out.print("x["+i+"] : ");
-			arr[i] = sc.nextInt();
+		
+		System.out.println("x[0] : ");
+		arr[0] = sc.nextInt();
+		
+		//이진검색 -> 정렬이 되어있어야 함!
+		for(int i=1; i<num; i++) {
+			do {
+				System.out.print("x["+i+"] : ");
+				arr[i] = sc.nextInt();
+			}while(arr[i]<arr[i-1]);
 		}
 		
 		System.out.print("검색할 값 : ");

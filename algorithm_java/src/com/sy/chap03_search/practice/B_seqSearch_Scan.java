@@ -57,6 +57,8 @@ public class B_seqSearch_Scan {
 					System.out.printf("%3s","*");
 			}
 			
+			//System.out.printf(String.format("%%%ds*\n", (i*4)+3),"");
+			
 			System.out.printf("\n%3d| ", i);  //2번째 줄 
 			for(int l=0; l<n; l++) {          //모든 배열의 값 출력
 				System.out.printf("%3d",x[l]);
