@@ -1,57 +1,58 @@
-package com.sy.chap04_stack.exercise;
+package com.sy.chap04_stack.pratice;
 
-public class IntStack {
-
+public class Q2_GStack<E> {
+	
 	private int max;
 	private int ptr;
-	private int[] stk;
+	private E[] stk;
 	
 	//실행 시 예외 : 스택이 비어있음
-	public class EmptyIntStackException extends RuntimeException{
-		public EmptyIntStackException() {/*System.out.println("스택이 비었습니다.");*/}
+	public class EmptyGStackException extends RuntimeException{
+		public EmptyGStackException() {/*System.out.println("스택이 비었습니다.");*/}
 	}
 	
 	//실행 시 예외 : 스택이 가득 참
-	public class OverflowIntStackException extends RuntimeException{
-		public OverflowIntStackException() {}
+	public class OverflowGStackException extends RuntimeException{
+		public OverflowGStackException() {}
 	}
 	
 	//생성자 -> 본체용 배열을 생성하는 등 준비작업 수행
-	public IntStack(int capacity) {
+	public Q2_GStack(int capacity) {
 		ptr = 0;
 		max = capacity;
 		try {
-			stk = new int[max];		   //스택 본체용 배열을 생성
-		}catch (OutOfMemoryError e) {  //배열 본체 생성할 수 없음 -> max : 0
+			//stk = new E[max];		   		//cannot create generic array
+			stk = (E[]) new Object[max];
+		}catch (OutOfMemoryError e) {  		//배열 본체 생성할 수 없음 -> max : 0
 			max = 0;
 		}
 	}
 	
 	//스택에 x 를 푸시
-	public int push(int x)  throws OverflowIntStackException {
-		if(ptr >= max)  //스택이 가득 참 -> ==보다 프로그램 안정성 up
-			throw new OverflowIntStackException();
+	public E push(E x)  throws OverflowGStackException {
+		if(ptr >= max) 			 //스택이 가득 참 -> ==보다 프로그램 안정성 up
+			throw new OverflowGStackException();
 		return stk[ptr++] = x;	//return문이 반환하는 것 -> stk[ptr]의 값
 	}
 	
 	
 	//스택에서 데이터를 팝
-	public int pop() throws EmptyIntStackException {
+	public E pop() throws EmptyGStackException {
 		if(ptr <= 0)
-			throw new EmptyIntStackException();
+			throw new EmptyGStackException();
 		return stk[--ptr];
 	}
 	
 	//스택에서 데이터를 피크(정상에 있는 데이터 들여다봄)
-	public int peek() throws EmptyIntStackException {
+	public E peek() throws EmptyGStackException {
 		if(ptr <= 0)
-			throw new EmptyIntStackException();
+			throw new EmptyGStackException();
 		return stk[ptr-1];
 	}
 	
-	public int indexOf(int x) {
+	public int indexOf(E x) {
 		for(int i= ptr-1; i>=0; i--) {
-			if(stk[i] == x)
+			if(stk[i].equals(x))  //객체 비교
 				return i;
 		}
 		return -1;
