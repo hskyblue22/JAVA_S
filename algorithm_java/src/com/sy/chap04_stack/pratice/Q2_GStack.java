@@ -6,13 +6,15 @@ public class Q2_GStack<E> {
 	private int ptr;
 	private E[] stk;
 	
+	//외부참조로 인한 단점이 더 분명하므로 내부클래스는 가능한 static으로 만든다.
 	//실행 시 예외 : 스택이 비어있음
-	public class EmptyGStackException extends RuntimeException{
-		public EmptyGStackException() {/*System.out.println("스택이 비었습니다.");*/}
+	public static class EmptyGstackException extends RuntimeException {
+		public EmptyGstackException() {
+		}
 	}
-	
+
 	//실행 시 예외 : 스택이 가득 참
-	public class OverflowGStackException extends RuntimeException{
+	public static class OverflowGStackException extends RuntimeException{
 		public OverflowGStackException() {}
 	}
 	
@@ -37,16 +39,16 @@ public class Q2_GStack<E> {
 	
 	
 	//스택에서 데이터를 팝
-	public E pop() throws EmptyGStackException {
+	public E pop() throws EmptyGstackException {
 		if(ptr <= 0)
-			throw new EmptyGStackException();
+			throw new EmptyGstackException();
 		return stk[--ptr];
 	}
 	
 	//스택에서 데이터를 피크(정상에 있는 데이터 들여다봄)
-	public E peek() throws EmptyGStackException {
+	public E peek() throws EmptyGstackException {
 		if(ptr <= 0)
-			throw new EmptyGStackException();
+			throw new EmptyGstackException();
 		return stk[ptr-1];
 	}
 	
@@ -93,6 +95,4 @@ public class Q2_GStack<E> {
 			System.out.println();
 		}
 	}
-
-
 }
