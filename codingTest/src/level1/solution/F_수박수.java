@@ -1,5 +1,11 @@
 package level1.solution;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 public class F_수박수 {
 	//1.수박수박수박수?
 	
@@ -44,10 +50,91 @@ public class F_수박수 {
         }
     }
 	
+	
+	//3. 두 개 뽑아서 더하기
+	public int[] solution(int[] numbers) {
+		ArrayList<Integer> temp = new ArrayList<>();  //numbers 더한 값 넣기
+		ArrayList<Integer> mid = new ArrayList<>();   //temp 에서 중복 없애기
+		int[] answer = {};
+
+		//numbers 더한 값 넣기
+        for(int i=0; i<numbers.length; i++) {
+        	for(int j=i+1; j<numbers.length; j++) {
+        		temp.add(numbers[i]+ numbers[j]);
+        	}
+        }
+        
+        //중복 없애기
+        for(int item : temp) {
+        	if(!mid.contains(item))
+        		mid.add(item);
+        }
+        
+        //정수 arraylist -> 정수 배열 / stream API 사용
+        answer = mid.stream().mapToInt(i->i).toArray();
+        Arrays.sort(answer);
+        return answer;
+    }
+	
+	//3. 두 개 뽑아서 더하기
+	//mid 없애기, stream API 쓰지 않기
+	public int[] solution1(int[] numbers) {
+		ArrayList<Integer> temp = new ArrayList<>();  //numbers 더한 값 넣기
+		int[] answer;
+
+		//numbers 더한 값 넣기
+        for(int i=0; i<numbers.length; i++) {
+        	for(int j=i+1; j<numbers.length; j++) {
+        		int item = numbers[i]+ numbers[j];
+        		if(!temp.contains(item))
+        			temp.add(item);
+        	}
+        }
+        
+        answer = new int[temp.size()];
+        
+        int index=0;
+        for(int value : temp) {
+        	answer[index++] = value;
+        }
+        
+        Arrays.sort(answer);
+        return answer;
+    }
+	
+	// 3. 두 개 뽑아서 더하기
+	// set 사용하기, iterator 사용하기
+	public int[] solution2(int[] numbers) {
+		Set<Integer> temp = new HashSet<Integer>(); //set이라서 중복값 제거 필요없음
+		int[] answer;
+
+		// numbers 더한 값 넣기
+		for (int i = 0; i < numbers.length; i++) {
+			for (int j = i + 1; j < numbers.length; j++) {
+				temp.add(numbers[i]+numbers[j]);					
+			}
+		}
+
+		answer = new int[temp.size()];
+		
+		Iterator<Integer> iterSet = temp.iterator();
+		int index = 0;
+		while(iterSet.hasNext()) {
+			answer[index++] = iterSet.next();
+		}
+
+		Arrays.sort(answer);
+		return answer;
+	}
+	
+	
 	public static void main(String[] args) {
 		F_수박수 f = new F_수박수();
 		System.out.println(f.solution(4));
 		System.out.println(f.solution1(3));
+		
+		int[] arr = new int[]{2,1,3,4,1};
+		System.out.println(Arrays.toString(f.solution2(arr)));
 		
 		//string, 메모리구조
 		String[] a = null;
